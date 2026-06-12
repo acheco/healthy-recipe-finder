@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import NavDesktop from '@/components/NavDesktop.vue'
 import NavMobile from '@/components/NavMobile.vue'
+import ButtonLink from '@/components/ButtonLink.vue'
 
 const routes = [
   { id: 1, path: '/', name: 'Home' },
@@ -17,12 +18,7 @@ const routes = [
     >
       <img src="./assets/images/logo.svg" alt="Logo" class="h-8 md:h-10" />
       <NavDesktop :routes="routes" className="hidden lg:block" />
-      <RouterLink
-        to="/recipes"
-        class="bg-custom-neutral-900 font-preset-5 hidden rounded-md px-4 py-3 text-white lg:block"
-      >
-        Browser Recipes
-      </RouterLink>
+      <ButtonLink to-route="/recipes" className="hidden lg:block"> Browse Recipes </ButtonLink>
 
       <NavMobile :routes="routes" className="lg:hidden" />
     </div>

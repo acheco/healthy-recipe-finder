@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { onMounted, onUnmounted, ref } from 'vue'
+import ButtonLink from '@/components/ButtonLink.vue'
 
 defineProps<{
   routes: { id: number; path: string; name: string }[]
@@ -46,18 +47,12 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
           :to="route.path"
           :key="route.id"
           @click="isOpen = false"
-          class="font-preset-7 text-custom-neutral-900"
+          class="font-preset-7 text-custom-neutral-900 hover:cursor-pointer"
         >
           {{ route.name }}
         </RouterLink>
 
-        <RouterLink
-          to="/recipes"
-          class="bg-custom-neutral-900 font-preset-5 rounded-lg px-4 py-3 text-center text-white"
-          @click="isOpen = false"
-        >
-          Browser Recipes
-        </RouterLink>
+        <ButtonLink to-route="/recipes" @click="isOpen = false"> Browse Recipes </ButtonLink>
       </div>
     </div>
   </div>
