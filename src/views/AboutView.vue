@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AppFooter from '@/components/AppFooter.vue'
 import ReadyToCook from '@/components/ReadyToCook.vue'
 import AppLayout from '@/views/layouts/AppLayout.vue'
 </script>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Recipe } from '@/types/recipe.ts'
 import { RouterLink } from 'vue-router'
+import RecipeStats from '@/components/RecipeStats.vue'
 
 defineProps<{ recipe: Recipe }>()
 </script>
@@ -18,20 +19,7 @@ defineProps<{ recipe: Recipe }>()
       <p>{{ recipe.overview }}</p>
     </div>
 
-    <div class="flex flex-wrap items-center gap-4">
-      <div class="flex items-center gap-2.5">
-        <img src="/images/icon-servings.svg" alt="Servings" />
-        <p class="font-preset-9">Servings: {{ recipe.servings }}</p>
-      </div>
-      <div class="flex items-center gap-2.5">
-        <img src="/images/icon-prep-time.svg" alt="Prep Time" />
-        <p class="font-preset-9">Prep: {{ recipe.prepMinutes }} mins</p>
-      </div>
-      <div class="flex items-center gap-2.5">
-        <img src="/images/icon-cook-time.svg" alt="Cook Time" />
-        <p class="font-preset-9">Cook: {{ recipe.cookMinutes }} mins</p>
-      </div>
-    </div>
+    <RecipeStats :serving="recipe.servings" :prep="recipe.prepMinutes" :cook="recipe.cookMinutes" />
 
     <RouterLink
       :to="{

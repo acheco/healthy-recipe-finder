@@ -3,6 +3,7 @@ import { computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useRecipesStore } from '@/stores/recipesStore.ts'
 import { storeToRefs } from 'pinia'
+import RecipeStats from '@/components/RecipeStats.vue'
 
 const route = useRoute()
 const store = useRecipesStore()
@@ -32,7 +33,38 @@ onMounted(() => {
         <div class="space-y-5">
           <h2 class="font-preset-2-mobile text-custom-neutral-900">{{ recipe.title }}</h2>
           <p class="font-preset-6 text-custom-neutral-600">{{ recipe.overview }}</p>
-          <div></div>
+          <RecipeStats
+            :serving="recipe.servings"
+            :prep="recipe.prepMinutes"
+            :cook="recipe.cookMinutes"
+          />
+          <div>
+            <h3 class="font-preset-5 text-custom-neutral-900">Ingredients</h3>
+            <ul class="pl-5">
+              <li
+                v-for="ingredient in recipe.ingredients"
+                :key="ingredient"
+                class="font-preset-6 text-custom-neutral-600 flex items-center gap-2"
+              >
+                <img src="/images/icon-bullet-point.svg" alt="Bullet point" />
+                {{ ingredient }}
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-preset-5 text-custom-neutral-900">Instructions</h3>
+            <ul class="pl-5">
+              <li
+                v-for="instruction in recipe.instructions"
+                :key="instruction"
+                class="font-preset-6 text-custom-neutral-600 flex items-center gap-2"
+              >
+                <img src="/images/icon-bullet-point.svg" alt="Bullet point" />
+                {{ instruction }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
