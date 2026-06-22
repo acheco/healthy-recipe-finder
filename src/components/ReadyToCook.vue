@@ -13,16 +13,16 @@ import ButtonLink from '@/components/ButtonLink.vue'
           Hit the button, pick a recipe, and get dinner on the table--fast
         </p>
       </div>
-      <ButtonLink to-route="/recipes">Browse recipes</ButtonLink>
+      <ButtonLink to-route="/recipes" className="m-0">Browse recipes</ButtonLink>
 
       <img
-        src="../assets/images/pattern-knife.svg"
+        src="../../public/images/pattern-knife.svg"
         alt="knife pattern"
         class="absolute -top-1 -right-15 hidden h-20 w-20 md:block md:h-75 md:w-64"
       />
 
       <img
-        src="../assets/images/pattern-fork.svg"
+        src="../../public/images/pattern-fork.svg"
         alt="knife pattern"
         class="absolute -bottom-5 -left-20 hidden h-20 w-20 md:block md:h-75 md:w-64"
       />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import NavDesktop from '@/components/NavDesktop.vue'
 import NavMobile from '@/components/NavMobile.vue'
 import ButtonLink from '@/components/ButtonLink.vue'
@@ -16,7 +16,7 @@ const routes = [
     <div
       class="wrapper lb:pb-5 lg:pb- flex items-center justify-between p-4 md:px-8 md:pt-8 lg:px-15 lg:py-5"
     >
-      <img src="./assets/images/logo.svg" alt="Logo" class="h-8 md:h-10" />
+      <img src="/images/logo.svg" alt="Logo" class="h-8 md:h-10" />
       <NavDesktop :routes="routes" className="hidden lg:block" />
       <ButtonLink to-route="/recipes" className="hidden lg:block"> Browse Recipes </ButtonLink>
 
@@ -26,5 +26,3 @@ const routes = [
 
   <RouterView />
 </template>
-
-<style scoped></style>

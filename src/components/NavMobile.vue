@@ -28,7 +28,7 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
       aria-controls="mobile-menu"
       :aria-label="isOpen ? 'Close menu' : 'Open menu'"
     >
-      <img src="../assets/images/icon-hamburger-menu.svg" alt="Hamburger Icon" />
+      <img src="/images/icon-hamburger-menu.svg" alt="Hamburger Icon" />
     </button>
 
     <div v-show="isOpen" class="fixed inset-0 z-10" @click="isOpen = false" aria-hidden="true" />
@@ -57,5 +57,3 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
     </div>
   </div>
 </template>
-
-<style scoped></style>

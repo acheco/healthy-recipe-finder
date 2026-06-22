@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/ButtonLink.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import ReadyToCook from '@/components/ReadyToCook.vue'
+import AppLayout from '@/views/layouts/AppLayout.vue'
 </script>
 <template>
-  <main class="px-4 pt-12 md:px-8 lg:px-20 lg:pt-20 xl:px-31">
+  <AppLayout>
     <!--  Our mission section  -->
     <div
-      class="relative mx-auto w-full space-y-10 pb-16 lg:flex lg:max-h-150 lg:flex-2 lg:items-center lg:gap-16"
+      class="relative mx-auto w-full space-y-10 pb-16 lg:flex lg:max-h-150 lg:items-center lg:gap-5 xl:gap-16"
     >
       <div class="space-y-6 lg:m-0 lg:max-h-[450px] lg:max-w-[510px]">
         <p
@@ -31,27 +31,23 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
         </div>
       </div>
 
-      <picture>
+      <picture class="flex justify-center lg:m-0 lg:w-1/2">
         <source
           media="(max-width: 767px)"
-          srcset="../assets/images/image-about-our-mission-small.webp"
+          srcset="/images/image-about-our-mission-small.webp"
           type="image/webp"
         />
-        <source srcset="../assets/images/image-about-our-mission-large.webp" type="image/webp" />
+        <source srcset="/images/image-about-our-mission-large.webp" type="image/webp" />
         <img
-          src="../assets/images/image-about-our-mission-small.webp"
+          src="/images/image-about-our-mission-small.webp"
           alt="Brunette Woman image"
           class="rounded-3xl lg:object-contain"
         />
       </picture>
       <div
-        class="absolute -right-10 bottom-21 hidden h-20 w-20 lg:block xl:h-[210.44px] xl:w-[118.25px]"
+        class="absolute hidden h-20 w-20 lg:-right-8 lg:bottom-45 lg:block xl:-right-6 xl:bottom-17 xl:h-[210.44px] xl:w-[118.25px]"
       >
-        <img
-          src="../assets/images/pattern-squiggle-2.svg"
-          alt="Squiggle pattern"
-          class="object-cover"
-        />
+        <img src="/images/pattern-squiggle-2.svg" alt="Squiggle pattern" class="object-cover" />
       </div>
     </div>
 
@@ -61,7 +57,7 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
       <div class="space-y-12">
         <div class="grid grid-cols-[32px_1fr] gap-5">
           <div>
-            <img src="../assets/images/icon-bullet-point.svg" alt="Bullet point icon" />
+            <img src="/images/icon-bullet-point.svg" alt="Bullet point icon" />
           </div>
           <div class="space-y-3">
             <h2 class="font-preset-4 text-custom-neutral-900">Cut through the noice.</h2>
@@ -75,7 +71,7 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
 
         <div class="grid grid-cols-[32px_1fr] gap-5">
           <div>
-            <img src="../assets/images/icon-bullet-point.svg" alt="Bullet point icon" />
+            <img src="/images/icon-bullet-point.svg" alt="Bullet point icon" />
           </div>
           <div class="space-y-3">
             <h2 class="font-preset-4 text-custom-neutral-900">Empower home kitchens.</h2>
@@ -88,7 +84,7 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
 
         <div class="grid grid-cols-[32px_1fr] gap-5">
           <div>
-            <img src="../assets/images/icon-bullet-point.svg" alt="Bullet point icon" />
+            <img src="/images/icon-bullet-point.svg" alt="Bullet point icon" />
           </div>
           <div class="space-y-3">
             <h2 class="font-preset-4 text-custom-neutral-900">Make healthy look good.</h2>
@@ -109,7 +105,7 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
       <div class="space-y-12">
         <div class="grid grid-cols-[32px_1fr] gap-5">
           <div>
-            <img src="../assets/images/icon-bullet-point.svg" alt="Bullet point icon" />
+            <img src="/images/icon-bullet-point.svg" alt="Bullet point icon" />
           </div>
           <div class="space-y-3">
             <h2 class="font-preset-4 text-custom-neutral-900">Whole ingredients first.</h2>
@@ -122,7 +118,7 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
 
         <div class="grid grid-cols-[32px_1fr] gap-5">
           <div>
-            <img src="../assets/images/icon-bullet-point.svg" alt="Bullet point icon" />
+            <img src="/images/icon-bullet-point.svg" alt="Bullet point icon" />
           </div>
           <div class="space-y-3">
             <h2 class="font-preset-4 text-custom-neutral-900">Flavor without compromise.</h2>
@@ -134,7 +130,7 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
 
         <div class="grid grid-cols-[32px_1fr] gap-5">
           <div>
-            <img src="../assets/images/icon-bullet-point.svg" alt="Bullet point icon" />
+            <img src="/images/icon-bullet-point.svg" alt="Bullet point icon" />
           </div>
           <div class="space-y-3">
             <h2 class="font-preset-4 text-custom-neutral-900">Respect for time.</h2>
@@ -147,7 +143,7 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
 
         <div class="grid grid-cols-[32px_1fr] gap-5">
           <div>
-            <img src="../assets/images/icon-bullet-point.svg" alt="Bullet point icon" />
+            <img src="/images/icon-bullet-point.svg" alt="Bullet point icon" />
           </div>
           <div class="space-y-3">
             <h2 class="font-preset-4 text-custom-neutral-900">Sustainable choices.</h2>
@@ -189,15 +185,12 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
       <picture>
         <source
           media="(max-width: 767px)"
-          srcset="../assets/images/image-about-beyond-the-plate-small.webp"
+          srcset="/images/image-about-beyond-the-plate-small.webp"
           type="image/webp"
         />
-        <source
-          srcset="../assets/images/image-about-beyond-the-plate-large.webp"
-          type="image/webp"
-        />
+        <source srcset="/images/image-about-beyond-the-plate-large.webp" type="image/webp" />
         <img
-          src="../assets/images/image-about-beyond-the-plate-large.webp"
+          src="/images/image-about-beyond-the-plate-large.webp"
           alt="Families image"
           class="rounded-3xl lg:object-contain xl:min-w-186"
         />
@@ -205,6 +198,5 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
     </div>
 
     <ReadyToCook />
-    <AppFooter />
-  </main>
+  </AppLayout>
 </template>
