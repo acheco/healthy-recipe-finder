@@ -10,6 +10,13 @@ export const useRecipesStore = defineStore('recipes', {
     loadingRecipes: false,
   }),
 
+  getters: {
+    randomRecipes: (state) => {
+      const shuffled = [...state.recipes].sort(() => 0.5 - Math.random())
+      return shuffled.slice(0, 3)
+    },
+  },
+
   actions: {
     async fetchRecipes() {
       if (this.loadingRecipes) return
