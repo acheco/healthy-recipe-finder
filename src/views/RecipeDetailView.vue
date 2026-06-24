@@ -4,12 +4,12 @@ import { useRoute } from 'vue-router'
 import { useRecipesStore } from '@/stores/recipesStore.ts'
 import { storeToRefs } from 'pinia'
 import RecipeStats from '@/components/RecipeStats.vue'
-import RecipeCard from '@/components/RecipeCard.vue'
 import RecipesLayout from '@/views/layouts/RecipesLayout.vue'
+import OtherRecipes from '@/components/OtherRecipes.vue'
 
 const route = useRoute()
 const store = useRecipesStore()
-const { recipes, randomRecipes, loading, error } = storeToRefs(store)
+const { recipes, loading, error } = storeToRefs(store)
 
 const recipe = computed(() => recipes.value.find((r) => r.slug === route.params.slug))
 
@@ -30,7 +30,6 @@ onMounted(() => {
         <h1 class="font-preset-7 text-custom-neutral-900">
           <span class="opacity-60">Recipes / </span>{{ recipe.title }}
         </h1>
-
         <div class="space-y-10 lg:grid lg:grid-cols-2 lg:gap-12">
           <img
             :src="recipe.image.large"
@@ -91,13 +90,16 @@ onMounted(() => {
     </div>
     <hr class="border-custom-neutral-300" />
     <!-- Other recipes section  -->
-    <div class="px-4 pt-12 pb-12 lg:pb-24">
-      <h2 class="font-preset-3 text-custom-neutral-900">More recipes</h2>
-      <div
-        class="flex flex-col gap-8 pt-12 lg:grid lg:grid-cols-2 lg:gap-4 xl:grid-cols-3 xl:gap-8"
-      >
-        <RecipeCard v-for="recipe in randomRecipes || []" :key="recipe.slug" :recipe="recipe" />
-      </div>
-    </div>
+    <Suspense>
+      <template #default>
+        <OtherRecipes />
+      </template>
+      <template #fallback>
+        <div class="px-4 pt-12 pb-12 lg:pb-24">
+          <h2 class="font-preset-3 text-custom-neutral-900">More recipes</h2>
+          <p>Loading other recipes...</p>
+        </div>
+      </template>
+    </Suspense>
   </RecipesLayout>
 </template>

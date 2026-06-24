@@ -12,6 +12,51 @@ const prepTime = ref('all')
 const cookTime = ref('all')
 const searchTerm = ref('')
 
+const prepOptions = [
+  {
+    value: 'all',
+    label: 'Max Prep Time',
+  },
+  {
+    value: '0',
+    label: '0 minutes',
+  },
+  {
+    value: '5',
+    label: '5 minutes',
+  },
+  {
+    value: '10',
+    label: '10 minutes',
+  },
+]
+const cookOptions = [
+  {
+    value: 'all',
+    label: 'Max Cook Time',
+  },
+  {
+    value: '0',
+    label: '0 minutes',
+  },
+  {
+    value: '5',
+    label: '5 minutes',
+  },
+  {
+    value: '10',
+    label: '10 minutes',
+  },
+  {
+    value: '15',
+    label: '15 minutes',
+  },
+  {
+    value: '20',
+    label: '20 minutes',
+  },
+]
+
 const filteredRecipes = computed(() => {
   return recipes.value.filter((recipe) => {
     const prepTimeMatch = prepTime.value === 'all' || recipe.prepMinutes <= parseInt(prepTime.value)
@@ -47,25 +92,21 @@ onMounted(() => store.fetchRecipes())
           <div class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
             <select
               name="prep-time"
-              class="font-preset-7 rounded-lg bg-white px-4 py-2.5 lg:min-w-51 xl:min-w-[181px]"
+              class="font-preset-7 rounded-lg bg-white px-4 py-2.5 focus:ring-2 focus:ring-offset-2 focus:outline-none lg:min-w-51 xl:min-w-45"
               v-model="prepTime"
             >
-              <option value="all">Max Prep Time</option>
-              <option value="0">0 minutes</option>
-              <option value="5">5 minutes</option>
-              <option value="10">10 minutes</option>
+              <option v-for="option in prepOptions" :value="option.value" :key="option.value">
+                {{ option.label }}
+              </option>
             </select>
             <select
               name="cook-time"
-              class="font-preset-7 focus:ring-custom-neutral-900 rounded-md bg-white px-4 py-2.5 focus:ring-2 focus:ring-offset-2 focus:outline-none lg:min-w-51 xl:min-w-[181px]"
+              class="font-preset-7 focus:ring-custom-neutral-900 rounded-md bg-white px-4 py-2.5 focus:ring-2 focus:ring-offset-2 focus:outline-none lg:min-w-51 xl:min-w-45"
               v-model="cookTime"
             >
-              <option value="all">Max Cook Time</option>
-              <option value="0">0 minutes</option>
-              <option value="5">5 minutes</option>
-              <option value="10">10 minutes</option>
-              <option value="15">15 minutes</option>
-              <option value="20">20 minutes</option>
+              <option v-for="option in cookOptions" :value="option.value" :key="option.value">
+                {{ option.label }}
+              </option>
             </select>
           </div>
           <input

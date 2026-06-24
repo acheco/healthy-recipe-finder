@@ -27,23 +27,30 @@ import ReadyToCook from '@/components/ReadyToCook.vue'
         <ButtonLink to-route="/recipes" className="px-8 py-4">Start exploring</ButtonLink>
       </div>
 
-      <picture>
-        <source
-          srcset="/images/image-home-hero-large.webp"
-          type="image/webp"
-          media="(min-width: 1024px)"
-        />
-        <source
-          media="(min-width: 375)"
-          srcset="/images/image-home-hero-small.webp"
-          type="image/webp"
-        />
+      <div class="relative mx-auto w-full">
+        <picture>
+          <source
+            srcset="/images/image-home-hero-large.webp"
+            type="image/webp"
+            media="(min-width: 1024px)"
+          />
+          <source
+            media="(min-width: 375px)"
+            srcset="/images/image-home-hero-small.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/image-home-hero-small.webp"
+            alt="Hero image"
+            class="w-full rounded-lg border-4 border-white md:mt-16 md:border-8 lg:mt-20"
+          />
+        </picture>
         <img
-          src="/images/image-home-hero-small.webp"
-          alt="Hero image"
-          class="w-full rounded-lg border-4 border-white md:mt-16 md:border-8 lg:mt-20"
+          src="/images/pattern-squiggle-1.svg"
+          alt=""
+          class="absolute top-1/2 left-1/2 -z-10 w-[120%] max-w-none -translate-x-1/2 -translate-y-1/2"
         />
-      </picture>
+      </div>
     </div>
 
     <!--  What you get section  -->
