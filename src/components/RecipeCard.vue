@@ -25,7 +25,6 @@ defineProps<{ recipe: Recipe }>()
       :to="{
         name: 'recipe',
         params: { slug: recipe.slug },
-        state: { recipe },
       }"
       name="recipe"
       class="font-preset-8 bg-custom-neutral-900 rounded-full px-8 py-3 text-center text-white hover:cursor-pointer"
