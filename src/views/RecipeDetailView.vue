@@ -7,6 +7,7 @@ import RecipeStats from '@/components/RecipeStats.vue'
 import RecipesLayout from '@/views/layouts/RecipesLayout.vue'
 import OtherRecipes from '@/components/OtherRecipes.vue'
 
+const base = import.meta.env.BASE_URL
 const route = useRoute()
 const store = useRecipesStore()
 const { recipes, loading, error } = storeToRefs(store)
@@ -32,7 +33,7 @@ onMounted(() => {
         </h1>
         <div class="space-y-10 lg:grid lg:grid-cols-2 lg:gap-12">
           <img
-            :src="recipe.image.large"
+            :src="`${base}${recipe.image.large}`"
             :alt="recipe.title"
             class="w-full rounded-xl object-cover xl:h-145 xl:w-145"
           />
@@ -52,7 +53,7 @@ onMounted(() => {
                   :key="ingredient"
                   class="font-preset-6 text-custom-neutral-600 flex items-center gap-2"
                 >
-                  <img src="/images/icon-bullet-point.svg" alt="Bullet point" />
+                  <img :src="`${base}images/icon-bullet-point.svg`" alt="Bullet point" />
                   {{ ingredient }}
                 </li>
               </ul>
@@ -66,7 +67,7 @@ onMounted(() => {
                   :key="instruction"
                   class="font-preset-6 text-custom-neutral-600 flex items-center gap-2"
                 >
-                  <img src="/images/icon-bullet-point.svg" alt="Bullet point" />
+                  <img :src="`${base}images/icon-bullet-point.svg`" alt="Bullet point" />
                   {{ instruction }}
                 </li>
               </ul>

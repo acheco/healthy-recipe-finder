@@ -3,15 +3,21 @@ import type { Recipe } from '@/types/recipe.ts'
 import { RouterLink } from 'vue-router'
 import RecipeStats from '@/components/RecipeStats.vue'
 
+const base = import.meta.env.BASE_URL
+
 defineProps<{ recipe: Recipe }>()
 </script>
 
 <template>
   <div class="flex flex-col space-y-4 rounded-xl bg-white p-2 shadow-md lg:justify-between">
     <picture>
-      <source :srcset="recipe.image.small" media="(max-width: 600px)" />
-      <source :srcset="recipe.image.large" media="(max-width: 1200px)" />
-      <img :src="recipe.image.large" :alt="recipe.title" class="h-auto w-full rounded-xl" />
+      <source :srcset="`${base}${recipe.image.small}`" media="(max-width: 600px)" />
+      <source :srcset="`${base}${recipe.image.large}`" media="(max-width: 1200px)" />
+      <img
+        :src="`${base}${recipe.image.large}`"
+        :alt="recipe.title"
+        class="h-auto w-full rounded-xl"
+      />
     </picture>
 
     <div class="space-y-2.5">
