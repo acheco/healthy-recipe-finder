@@ -71,7 +71,7 @@ src/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/acheco/recipe-finder.git
+git clone https://github.com/acheco/healthy-recipe-finder.git
 cd recipe-finder
 
 # 2. Install dependencies
