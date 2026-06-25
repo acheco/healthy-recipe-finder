@@ -8,7 +8,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue(), vueDevTools(), tailwindcss()],
-  base: '/healthy-recipes-finder/',
+  base: '/healthy-recipe-finder/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
